@@ -1,74 +1,402 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mia Lee - Guangdong Hub Interpreter</title>
+    <title>Mia Lee - Guangdong Hub Community Interpreter</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; color: #fff; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }
-        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .profile-card { background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px; text-align: center; }
-        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; border: 5px solid #667eea; }
-        .info-section { text-align: left; margin: 30px 0; }
-        .info-section h3 { color: #667eea; margin-bottom: 15px; }
-        .info-section ul { list-style: none; }
-        .info-section li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .qr-codes { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .qr-item { text-align: center; }
-        .qr-item img { width: 150px; height: 150px; background: white; padding: 10px; border-radius: 10px; }
-        .back-btn { display: inline-block; background: rgba(255,255,255,0.1); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; margin-bottom: 20px; }
-        .back-btn:hover { background: rgba(255,255,255,0.2); }
-        footer { text-align: center; padding: 40px; background: rgba(0, 0, 0, 0.2); margin-top: 60px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #FAFAF8;
+            color: #2D3436;
+            line-height: 1.6;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .back-btn:hover {
+            color: #764ba2;
+        }
+        
+        /* Hero Photo */
+        .hero {
+            position: relative;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: #fff;
+        }
+        
+        .hero-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .hero-info {
+            font-size: 15px;
+            opacity: 0.9;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        /* Quick Info Cards */
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .info-card .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .info-card .label {
+            font-size: 12px;
+            color: #B2BEC3;
+            margin-bottom: 5px;
+        }
+        
+        .info-card .value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2D3436;
+        }
+        
+        /* Section */
+        .section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2D3436;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section p {
+            color: #636E72;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        /* Languages */
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .language-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #FAFAF8;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        /* Services */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #2D3436;
+        }
+        
+        .service-item .check {
+            color: #00b894;
+            font-weight: bold;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Contact Buttons */
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .contact-btn.wechat {
+            background: #07C160;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+        
+        .contact-btn.email {
+            background: #667eea;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .response-time {
+            text-align: center;
+            font-size: 12px;
+            color: #B2BEC3;
+            margin-top: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #B2BEC3;
+            font-size: 13px;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero {
+                height: 280px;
+            }
+            
+            .hero-name {
+                font-size: 26px;
+            }
+            
+            .quick-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Mia Lee</h1>
-        <p>Professional Interpreter | Guangdong Hub Member</p>
-    </div>
-    <div class="container">
-        <a href="../" class="back-btn">Back to Home</a>
-        <div class="profile-card">
-            <img src="../images/mia-lee.jpg" alt="Mia Lee" class="profile-img">
-            <div class="info-section">
-                <h3>About</h3>
-                <p>Master's in Communication from Shenzhen University with extensive experience at Canton Fair and CIFF. Fluent in Mandarin, English, Cantonese, and Teochew.</p>
-            </div>
-            <div class="info-section">
-                <h3>Languages</h3>
-                <ul>
-                    <li>Mandarin (Native)</li>
-                    <li>English (CET-6: 560)</li>
-                    <li>Cantonese</li>
-                    <li>Teochew</li>
-                    <li>Basic Spanish</li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <h3>Specializations</h3>
-                <ul>
-                    <li>Trade Fairs (Canton Fair, CIFF)</li>
-                    <li>Factory Visits</li>
-                    <li>Business Negotiations</li>
-                    <li>Overseas Advertising</li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <h3>Works In</h3>
-                <p>Guangzhou | Shenzhen | Dongguan</p>
-            </div>
-            <div class="info-section">
-                <h3>Contact Mia</h3>
-                <div class="qr-codes">
-                    <div class="qr-item"><img src="../images/mia-whatsapp-qr.jpg" alt="WhatsApp"><p>WhatsApp</p></div>
-                    <div class="qr-item"><img src="../images/mia-wechat-qr.jpg" alt="WeChat"><p>WeChat</p></div>
-                </div>
+    <!-- Back Button -->
+    <a href="../" class="back-btn">
+        ← Back to Community
+    </a>
+    
+    <!-- Hero Photo -->
+    <header class="hero">
+        <img src="../images/mia-lee.jpg" alt="Mia Lee" class="hero-photo">
+        <div class="hero-overlay">
+            <h1 class="hero-name">Mia Lee</h1>
+            <div class="hero-info">
+                <span>📍 Guangzhou, Shenzhen</span>
+                <span>⭐ 5+ Years Experience</span>
+                <span>🇨🇳 Chinese • 🇬🇧 English</span>
             </div>
         </div>
-    </div>
-    <footer><p>&copy; 2026 Guangdong Hub. All Rights Reserved.</p></footer>
+    </header>
+    
+    <main class="container">
+        <!-- Quick Info -->
+        <div class="quick-info">
+            <div class="info-card">
+                <div class="icon">📍</div>
+                <div class="label">Location</div>
+                <div class="value">Guangzhou, Shenzhen</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">⭐</div>
+                <div class="label">Experience</div>
+                <div class="value">5+ Years</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">🌐</div>
+                <div class="label">Languages</div>
+                <div class="value">Chinese, English</div>
+            </div>
+        </div>
+        
+        <!-- About -->
+        <section class="section">
+            <h2 class="section-title">💬 About</h2>
+            <p>Master's graduate in Communication from Shenzhen University. I help international visitors with factory visits, trade shows, business meetings, and local experiences in Guangdong. Fluent in Mandarin, English, Cantonese, and Teochew with basic Spanish.</p>
+        </section>
+        
+        <!-- Languages -->
+        <section class="section">
+            <h2 class="section-title">🌍 Languages</h2>
+            <div class="languages-list">
+                <div class="language-tag">🇨🇳 Mandarin (Native)</div>
+                <div class="language-tag">🇬🇧 English (CET-6: 560)</div>
+                <div class="language-tag">🇭🇰 Cantonese</div>
+                <div class="language-tag">🇨🇳 Teochew</div>
+                <div class="language-tag">🇪🇸 Basic Spanish</div>
+            </div>
+        </section>
+        
+        <!-- Services -->
+        <section class="section">
+            <h2 class="section-title">💼 Services</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <span class="check">✓</span> Canton Fair Support
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Factory Visits
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Business Meetings
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Supplier Visits
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> CIFF Furniture Fair
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Translation Assistance
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Remote/Virtual Interpretation
+                </div>
+                <div class="service-item">
+                    <span class="check">✓</span> Local Guide
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery -->
+        <section class="section">
+            <h2 class="section-title">📸 Gallery</h2>
+            <div class="gallery">
+                <img src="../images/mia-lee.jpg" alt="Work photo 1">
+                <img src="../images/mia-whatsapp-qr.jpg" alt="Work photo 2">
+                <img src="../images/mia-wechat-qr.jpg" alt="Work photo 3">
+                <img src="../images/cover1.png" alt="Guangdong">
+            </div>
+        </section>
+        
+        <!-- Contact -->
+        <section class="section">
+            <h2 class="section-title">📞 Contact Mia</h2>
+            <div class="contact-buttons">
+                <a href="https://wa.me/8617586828670" class="contact-btn whatsapp" target="_blank">
+                    💬 WhatsApp
+                </a>
+                <a href="#" class="contact-btn wechat">
+                    💬 WeChat
+                </a>
+            </div>
+            <p class="response-time">⏰ Usually responds within 1 hour</p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Guangdong Hub Community</p>
+        <p style="margin-top: 10px;"><a href="../">← Back to Community</a></p>
+    </footer>
 </body>
 </html>
