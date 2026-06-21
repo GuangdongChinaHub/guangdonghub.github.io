@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guangdong Hub - Professional Interpreters</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3em; margin-bottom: 10px; }
+        .hero p { font-size: 1.2em; opacity: 0.9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; font-size: 2em; margin-bottom: 40px; color: #667eea; }
+        .interpreters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .interpreter-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .interpreter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .interpreter-card img {
+            width: 120px; height: 120px;
+            border-radius: 50%; object-fit: cover;
+            margin-bottom: 20px; border: 4px solid #667eea;
+        }
+        .interpreter-card h3 { font-size: 1.4em; margin-bottom: 10px; }
+        .interpreter-card p { color: #aaa; margin-bottom: 15px; font-size: 0.95em; }
+        .cities { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px; }
+        .city-tag { background: #667eea; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; }
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 12px 30px;
+            border-radius: 25px; text-decoration: none; font-weight: 600;
+        }
+        footer { text-align: center; padding: 40px; background: rgba(0, 0, 0, 0.2); margin-top: 60px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .feature-card { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; text-align: center; }
+        .feature-card h3 { color: #667eea; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Guangdong Hub</h1>
+        <p>Professional Interpreters in China</p>
+    </div>
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="features">
+            <div class="feature-card"><h3>Canton Fair</h3><p>Expert interpretation at China's largest trade exhibition</p></div>
+            <div class="feature-card"><h3>Factory Visits</h3><p>Seamless communication during supplier visits</p></div>
+            <div class="feature-card"><h3>Business Negotiations</h3><p>Bridge the language gap in deals</p></div>
+        </div>
+        <h2 class="section-title">Meet Our Interpreters</h2>
+        <div class="interpreters-grid">
+            <div class="interpreter-card">
+                <img src="images/mia-lee.jpg" alt="Mia Lee">
+                <h3>Mia Lee</h3>
+                <div class="cities">
+                    <span class="city-tag">Guangzhou</span>
+                    <span class="city-tag">Shenzhen</span>
+                </div>
+                <p>Chinese-English Interpreter | Canton Fair Expert</p>
+                <a href="translators/mia-lee.html" class="contact-btn">View Profile</a>
+            </div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 Guangdong Hub. All Rights Reserved.</p></footer>
+</body>
+</html>
